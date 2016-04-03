@@ -1,0 +1,9 @@
+<h1>Hello there Create some posts</h1>
+
+<% @posts.each do |post| %>
+  <h4><%= link_to post.title, post_path(post) %></h4>
+  <small>Published <%= time_ago_in_words(post.created_at) %></small>
+<% end %>
+<br>
+<br>
+<%= link_to "New Post", new_post_path %>
