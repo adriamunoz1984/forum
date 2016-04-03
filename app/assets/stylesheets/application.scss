@@ -35,12 +35,15 @@
   #logo
   {
     float: left;
-    p
-    {
+  a{
+
       text-transform: uppercase;
       font-weight: 700px;
       letter-spacing: -1px;
       font-size: 1.2rem;
+      text-decoration: none;
+      color: #397CAC;
+
     }
   }
 
