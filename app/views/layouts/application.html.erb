@@ -2,17 +2,40 @@
 <html>
 <head>
   <title>Forum</title>
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,300' rel='stylesheet' type='text/css'>
+  <link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/4.0.0/normalize.css' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= link_to "Sign Up",  new_user_registration_path %>
-  <%= link_to "Sign In",  new_user_session_path %>
-  <%= link_to "Sign Out", destroy_user_session_path(current_user) %>
-     <p class="notice"><%= notice %></p>
-     <p class="alert"><%= alert %></p>
-    <%= yield %>
+  <header class="main_header clearfix">
+    <div class="wrapper">
+      <div id="logo">
+        <p>Adrians Rails Forum</p>
+      </div>
+      <div id="buttons">
+          <small>Welcome <%= current_user.email %>!</small>
+          <%= link_to "New Post", new_post_path %> |
+          <% if user_signed_in? %>
+            <%= link_to "Sign Out", destroy_user_session_path(current_user) %>
+          <% else %>
+          <%= link_to "Sign Up",  new_user_registration_path %> |
+            <%= link_to "Sign In",  new_user_session_path %>
+          <% end %>
+      </div>
+    </div>
+  </header>
+
+     <div class="wrapper">
+       <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+     </div>
+
+     <div class="wrapper">
+      <%= yield %>
+     </div>
 
 </body>
 </html>
+

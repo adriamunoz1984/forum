@@ -1,9 +1,10 @@
-<h1>Hello there Create some posts</h1>
+<div id="posts">
+  <% @posts.each do |post| %>
+    <div class="post">
+      <h2 class="title"><%= link_to post.title, post_path(post) %></h2>
+      <p class="date">Published <%= time_ago_in_words(post.created_at) %> by <%= current_user.email %></p>
+    </div>
+  <% end %>
+</div>
 
-<% @posts.each do |post| %>
-  <h4><%= link_to post.title, post_path(post) %></h4>
-  <small>Published <%= time_ago_in_words(post.created_at) %> by <%= current_user.email %></small>
-<% end %>
-<br>
-<br>
-<%= link_to "New Post", new_post_path %>
+
