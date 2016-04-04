@@ -2,14 +2,17 @@
   <h1><%= @post.title %></h1>
   <p><%= @post.content %></p>
   
-  <div class="comments">
-    <h2><%= @post.comments.count %></h2>
+  <div id="comments">
+    <h4><%= @post.comments.count %> replies</h4>
     <%= render @post.comments %>
 
-    <h3> Reply to thread </h3>
     <%= render 'comments/form' %>
   </div>
-  <%= link_to "Edit", edit_post_path(@post) %>
-  <%= link_to "Delete", post_path(@post), method: :delete, data:{confirm: "Are you sure?"}%>
-  <%= link_to "Back", root_path%>
+  <br>
+  <hr>
+  <br>
+
+  <%= link_to "Edit", edit_post_path(@post), class: "button" %>
+  <%= link_to "Delete", post_path(@post), method: :delete, data:{confirm: "Are you sure?"}, class: "button"%>
+  <%= link_to "Back", root_path, class: "button"%>
 </div>

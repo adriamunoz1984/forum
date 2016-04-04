@@ -11,15 +11,15 @@
 <body>
   <header class="main_header clearfix">
     <div class="wrapper">
-      <div id="logo">
-        <p><%=link_to "Adrians Rails Forum", root_path %></p>
+      <div id="logo1">
+        <p id="title1"><%=link_to "Adrians Rails Forum", root_path %></p>
       </div>
       <div id="buttons">
           
           <% if user_signed_in? %>
             <small>Welcome <%= current_user.email %>!</small>
             <%= link_to "New Post", new_post_path %> |
-            <%= link_to "Sign Out", destroy_user_session_path(current_user) %>
+            <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
           <% else %>
           <%= link_to "Sign Up",  new_user_registration_path %> |
             <%= link_to "Sign In",  new_user_session_path %>
